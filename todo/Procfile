@@ -1,1 +1,4 @@
-web: waitress-serve --port=$PORT todo.wsgi:application
+release: python manage.py makemigrations --no-input
+release: python manage.py migrate --no-input
+
+web: gunicorn todo.wsgi
